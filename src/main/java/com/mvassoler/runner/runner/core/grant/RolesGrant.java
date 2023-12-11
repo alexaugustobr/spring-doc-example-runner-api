@@ -1,4 +1,4 @@
-package com.mvassoler.runner.runner.grant;
+package com.mvassoler.runner.runner.core.grant;
 
 public final class RolesGrant {
 

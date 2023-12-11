@@ -1,4 +1,4 @@
-package com.mvassoler.runner.runner.security;
+package com.mvassoler.runner.runner.core.security;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;

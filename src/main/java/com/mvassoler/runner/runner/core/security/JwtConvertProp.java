@@ -1,4 +1,4 @@
-package com.mvassoler.runner.runner.security;
+package com.mvassoler.runner.runner.core.security;
 
 import lombok.Getter;
 import lombok.Setter;

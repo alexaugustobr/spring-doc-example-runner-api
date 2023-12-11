@@ -1,4 +1,4 @@
-package com.mvassoler.runner.runner.config;
+package com.mvassoler.runner.runner.core.config;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

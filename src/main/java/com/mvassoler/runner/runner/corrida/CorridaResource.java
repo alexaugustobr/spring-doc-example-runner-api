@@ -1,6 +1,6 @@
-package com.mvassoler.runner.runner.resource;
+package com.mvassoler.runner.runner.corrida;
 
-import com.mvassoler.runner.runner.domain.Corrida;
+import com.mvassoler.runner.runner.corrida.Corrida;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
-import static com.mvassoler.runner.runner.grant.RolesGrant.CREATE_CORRIDA;
-import static com.mvassoler.runner.runner.grant.RolesGrant.DELETE_CORRIDA;
-import static com.mvassoler.runner.runner.grant.RolesGrant.SUPER_USER;
+import static com.mvassoler.runner.runner.core.grant.RolesGrant.CREATE_CORRIDA;
+import static com.mvassoler.runner.runner.core.grant.RolesGrant.DELETE_CORRIDA;
+import static com.mvassoler.runner.runner.core.grant.RolesGrant.SUPER_USER;
 
 @RestController
 @RequestMapping("/corrida")

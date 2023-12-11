@@ -1,6 +1,6 @@
-package com.mvassoler.runner.runner.resource;
+package com.mvassoler.runner.runner.prova;
 
-import com.mvassoler.runner.runner.domain.Prova;
+import com.mvassoler.runner.runner.prova.Prova;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
-import static com.mvassoler.runner.runner.grant.RolesGrant.CREATE_PROVA;
-import static com.mvassoler.runner.runner.grant.RolesGrant.DELETE_PROVA;
-import static com.mvassoler.runner.runner.grant.RolesGrant.SUPER_USER;
-import static com.mvassoler.runner.runner.grant.RolesGrant.UPDATE_PROVA;
+import static com.mvassoler.runner.runner.core.grant.RolesGrant.CREATE_PROVA;
+import static com.mvassoler.runner.runner.core.grant.RolesGrant.DELETE_PROVA;
+import static com.mvassoler.runner.runner.core.grant.RolesGrant.SUPER_USER;
+import static com.mvassoler.runner.runner.core.grant.RolesGrant.UPDATE_PROVA;
 
 @RestController
 @RequestMapping("/prova")

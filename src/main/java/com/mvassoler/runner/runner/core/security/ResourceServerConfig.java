@@ -1,4 +1,4 @@
-package com.mvassoler.runner.runner.security;
+package com.mvassoler.runner.runner.core.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,10 +22,11 @@ public class ResourceServerConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .authorizeHttpRequests(r-> r.anyRequest().permitAll())
                 .csrf().disable()
-                .cors()
-                .and()
-                .oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthConverter);
+                .cors();
+//                .and()
+//                .oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthConverter);
         return http.build();
     }
 }

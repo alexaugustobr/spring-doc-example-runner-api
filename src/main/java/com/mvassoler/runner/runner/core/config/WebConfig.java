@@ -1,4 +1,4 @@
-package com.mvassoler.runner.runner.config;
+package com.mvassoler.runner.runner.core.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

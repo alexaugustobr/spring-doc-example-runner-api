@@ -1,4 +1,4 @@
-package com.mvassoler.runner.runner.domain;
+package com.mvassoler.runner.runner.core.resource;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

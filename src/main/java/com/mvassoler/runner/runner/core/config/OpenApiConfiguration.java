@@ -1,9 +1,9 @@
-package com.mvassoler.runner.runner.config;
+package com.mvassoler.runner.runner.core.config;
 
 
-import com.mvassoler.runner.runner.domain.Corrida;
-import com.mvassoler.runner.runner.domain.ErrorDetailsDTO;
-import com.mvassoler.runner.runner.domain.Prova;
+import com.mvassoler.runner.runner.core.resource.ErrorDetailsDTO;
+import com.mvassoler.runner.runner.corrida.Corrida;
+import com.mvassoler.runner.runner.prova.Prova;
 import io.swagger.v3.core.converter.ModelConverters;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
@@ -47,9 +47,37 @@ public class OpenApiConfiguration {
         return GroupedOpenApi
                 .builder()
                 .group("Runners")
-                .pathsToMatch(
-                        "/corrida/**",
-                        "/prova/**"
+                .packagesToScan(
+                        "com.mvassoler.runner.runner.core.resource",
+                        "com.mvassoler.runner.runner.corrida"
+                )
+                .addOpenApiCustomizer(openApi -> {
+                    openApi.info(new Info()
+                            .title("Runner API")
+                            .description("Gestão dos treinos e provas para corredores de rua")
+                            .version("1.0")
+                            .license(
+                                    new License()
+                                            .name("Apache 2.0")
+                                            .url("http://springdoc.com")
+                            )
+                    ).tags(
+                            Arrays.asList(
+                                    this.newTag("Corridas", "API para a manutenção dos treinos da corrida de rua")
+                            )
+                    );
+                })
+                .build();
+    }
+
+    @Bean
+    GroupedOpenApi challenges() {
+        return GroupedOpenApi
+                .builder()
+                .group("Challenges")
+                .packagesToScan(
+                        "com.mvassoler.runner.runner.core.resource",
+                        "com.mvassoler.runner.runner.prova"
                 )
                 .addOpenApiCustomizer(openApi -> {
                     openApi.info(new Info()
@@ -63,24 +91,12 @@ public class OpenApiConfiguration {
                                     )
                             ).tags(
                                     Arrays.asList(
-                                            this.newTag("Provas", "API para a manutenção das provas oficiais da corrida de rua"),
-                                            this.newTag("Corridas", "API para a manutenção dos treinos da corrida de rua")
+                                            this.newTag("Provas", "API para a manutenção das provas oficiais da corrida de rua")
                                     )
-                            )
-
-                            .components(new Components().schemas(this.gerarSchemas())
-                                    .responses(this.gerarResponses()
-                                    )
-                            )
-                            .getPaths()
-                            .values()
-                            .forEach(pathItem -> pathItem.readOperationsMap()
-                                    .forEach(this::setListResponses)
                             );
                 })
                 .build();
     }
-
 
     private Tag newTag(String name, String description) {
         return new Tag().name(name).description(description);
